@@ -3,10 +3,6 @@ import {Link} from "react-router-dom";
 import React from "react";
 import Icon from "./Icon";
 
-require('icons/labels.svg');
-require('icons/money.svg');
-require('icons/statistics.svg')
-
 const NavWrapper = styled.nav`
   line-height: 24px;
   box-shadow: 0 0 3px rgba(0,0,0,0.25);
