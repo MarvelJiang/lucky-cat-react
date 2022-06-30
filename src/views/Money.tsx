@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import React from "react";
 import TagsSection from "./Money/TagsSection";
-import NotesSection from "./Money/NotesSection";
+import NotesSection from "./Money/NoteSection";
 import TypesSection from "./Money/TypesSection";
 import NumberPadSection from "./Money/NumberPadSection";
 
