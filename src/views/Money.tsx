@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 const TagsSection = styled.section` 
+  flex-grow: 1;
   background: #FFFFFF; 
   padding: 12px 16px;
   flex-grow: 1; display:flex; 
@@ -129,18 +130,21 @@ const Money = () => {
                 </ol>
                 <button>新增标签</button>
             </TagsSection>
+
             <NotesSection>
                 <label>
                     <span>备注</span>
                     <input type="text" placeholder="在这里添加备注..."/>
                 </label>
             </NotesSection>
+
             <TypesSection>
                 <ul>
                     <li className="selected">支出</li>
                     <li>收入</li>
                 </ul>
             </TypesSection>
+
             <NumberPadSection>
                 <div className="output">
                     <span>￥</span>
