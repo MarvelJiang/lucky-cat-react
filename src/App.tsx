@@ -1,10 +1,8 @@
 import React from 'react';
-import {
-    HashRouter,
-    Routes,
-    Route,
-} from "react-router-dom";
-import Layout from "./components/Layout";
+import { HashRouter, Routes, Route, } from "react-router-dom";
+import Tags from "./views/Tags";
+import Money from "./views/Money";
+import Statistics from "./views/Statistics";
 
 function App() {
   return (
@@ -26,30 +24,5 @@ function App() {
       </HashRouter>
   );
 }
-
-const Tags = () => {
-    return (
-        <Layout>
-            <div>标签</div>
-        </Layout>
-    )
-}
-
-const Money = () => {
-    return (
-        <Layout>
-            <div>记账</div>
-        </Layout>
-    )
-}
-
-const Statistics = () => {
-    return (
-        <Layout>
-            <div>统计</div>
-        </Layout>
-    )
-}
-
 
 export default App;
