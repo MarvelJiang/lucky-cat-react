@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, {useState} from "react";
 
 const TypesSectionWrapper = styled.section`
   font-size: 24px;
@@ -18,12 +18,14 @@ const TypesSectionWrapper = styled.section`
   }
 `
 
-const TypesSection = () => {
+const TypesSection:React.FC = () => {
+    const [typeList] = useState<('支出'|'收入')[]>(['支出','收入'])
+    const [type,setType] = useState<string>('支出')
     return (
         <TypesSectionWrapper>
             <ul>
-                <li className="selected">支出</li>
-                <li>收入</li>
+                {typeList.map(n=><li className={type === n ? 'selected' : ''}
+                                     onClick={()=>{setType(n)}} key={n}>{n}</li>)}
             </ul>
         </TypesSectionWrapper>
     )
