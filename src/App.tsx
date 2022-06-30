@@ -4,25 +4,11 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import styled from "styled-components";
-import Nav from "./components/Nav";
-
-const Wrapper = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-`
-
-const Main = styled.div`
-  flex-grow: 1;
-  overflow: auto;
-`
+import Layout from "./components/Layout";
 
 function App() {
   return (
       <HashRouter>
-          <Wrapper>
-              <Main>
                   <Routes>
                       <Route path="/" element={<Money />} />
                       <Route path="/tags" element={<Tags />} />
@@ -37,29 +23,31 @@ function App() {
                           }
                       />
                   </Routes>
-              </Main>
-
-              <Nav />
-          </Wrapper>
       </HashRouter>
   );
 }
 
 const Tags = () => {
     return (
-        <div>标签</div>
+        <Layout>
+            <div>标签</div>
+        </Layout>
     )
 }
 
 const Money = () => {
     return (
-        <div>记账</div>
+        <Layout>
+            <div>记账</div>
+        </Layout>
     )
 }
 
 const Statistics = () => {
     return (
-        <div>统计</div>
+        <Layout>
+            <div>统计</div>
+        </Layout>
     )
 }
 
