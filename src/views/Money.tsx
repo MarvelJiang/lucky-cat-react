@@ -52,6 +52,20 @@ const NotesSection = styled.section`
 `
 
 const TypesSection = styled.section`
+  font-size: 24px;
+  > ul{
+    display:flex;
+    background:#c4c4c4;
+    > li {
+      width: 50%;
+      text-align:center;
+      padding: 16px 0;
+      border-bottom: 4px solid transparent;
+      &.selected{
+        border-bottom: 4px solid black;
+      }
+    }
+  }
 `
 
 const NumberPadSection = styled.section`
@@ -77,7 +91,7 @@ const Money = () => {
             </NotesSection>
             <TypesSection>
                 <ul>
-                    <li>支出</li>
+                    <li className="selected">支出</li>
                     <li>收入</li>
                 </ul>
             </TypesSection>
