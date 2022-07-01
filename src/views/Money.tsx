@@ -12,24 +12,18 @@ const Money = () => {
         type:'支出',
         amount:'0',
     })
+    const onChange = (obj:Partial<typeof selected>) => {
+        setSelected(
+            {...selected,
+            ...obj
+            })
+    }
     return (
         <Layout>
-            <TagsSection value={selected.tag} onChange={(tag) => setSelected({
-                ...selected,
-                tag:tag
-            })}/>
-            <NotesSection value={selected.note} onChange={(note) => setSelected({
-                ...selected,
-                note:note
-            })}/>
-            <TypesSection value={selected.type} onChange={(type) => setSelected({
-                ...selected,
-                type:type
-            })}/>
-            <NumberPadSection value={selected.amount} onChange={(amount) => setSelected({
-                ...selected,
-                amount:amount
-            })}/>
+            <TagsSection value={selected.tag} onChange={(tag) => onChange({tag})}/>
+            <NotesSection value={selected.note} onChange={(note) => onChange({note})}/>
+            <TypesSection value={selected.type} onChange={(type) => onChange({type})}/>
+            <NumberPadSection value={selected.amount} onChange={(amount) => onChange({amount})}/>
         </Layout>
     )
 }
