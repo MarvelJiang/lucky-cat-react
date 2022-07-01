@@ -52,7 +52,10 @@ const NumberPadSectionWrapper = styled.section`
 
 const NumberPadSection:React.FC = () => {
     const numberArr = ['0','1','2','3','4','5','6','7','8','9']
-    const [output,setOutput] = useState('0');
+    const [output,_setOutput] = useState('0');
+    const setOutput = (output:string) => {
+        if(output.length > 14){return}else{_setOutput(output)}
+    }
     const onclickButtonWrapper = (e:React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent!;
         if(numberArr.indexOf(text)>=0){
@@ -63,6 +66,8 @@ const NumberPadSection:React.FC = () => {
             setOutput('0')
         }else if(text === '.'){
             output.indexOf('.') < 0 ? setOutput(output + '.') : setOutput(output)
+        }else if(text === 'OK'){
+
         }
     }
     return (
