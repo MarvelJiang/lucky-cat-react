@@ -33,17 +33,22 @@ const TagsSectionWrapper = styled.section`
   }
 `
 
-const TagsSection:React.FC = () => {
+type Props = {
+    value:string,
+    onChange:(selected:string)=>void
+}
+
+const TagsSection:React.FC<Props> = (props) => {
     const [tags,setTags] = useState<string[]>(['衣','食','住','行']);
-    const [selectedTag,setSelectedTag] = useState<string>('')
+    const selectedTag = props.value;
     const onAddTag = () => {
-        const newTag = window.prompt('请输入新建标签的名称')
+        const newTag = window.prompt('请输入新标签的名称')
         if(newTag !== null){
             setTags([...tags,newTag])
         }
     }
     const onToggleTag = (tag:string) => {
-        tag === selectedTag ? setSelectedTag('') : setSelectedTag(tag)
+        tag === selectedTag ? props.onChange(tag) : props.onChange(tag)
     }
     return (
         <TagsSectionWrapper>

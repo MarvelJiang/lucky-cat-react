@@ -18,14 +18,19 @@ const TypesSectionWrapper = styled.section`
   }
 `
 
-const TypesSection:React.FC = () => {
+type Props = {
+    value:string,
+    onChange:(type:string)=>void
+}
+
+const TypesSection:React.FC<Props> = (props) => {
     const [typeList] = useState<('支出'|'收入')[]>(['支出','收入'])
-    const [type,setType] = useState<string>('支出')
+    const type = props.value;
     return (
         <TypesSectionWrapper>
             <ul>
                 {typeList.map(n=><li className={type === n ? 'selected' : ''}
-                                     onClick={()=>{setType(n)}} key={n}>{n}</li>)}
+                                     onClick={()=>{props.onChange(n)}} key={n}>{n}</li>)}
             </ul>
         </TypesSectionWrapper>
     )
