@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useState} from "react";
+import React from "react";
 import useTags from "../../useTags";
 
 const TagsSectionWrapper = styled.section` 
@@ -35,29 +35,29 @@ const TagsSectionWrapper = styled.section`
 `
 
 type Props = {
-    value:string,
-    onChange:(selected:string)=>void
+    value:number,
+    onChange:(selected:number)=>void
 }
 
 const TagsSection:React.FC<Props> = (props) => {
     const {tags,setTags} =  useTags();
-    const selectedTag = props.value;
+    const selectedTagId = props.value;
     const onAddTag = () => {
         const newTag = window.prompt('请输入新标签的名称')
         if(newTag !== null){
-            setTags([...tags,newTag])
+            setTags([...tags, {id:Math.random(),name:newTag}])
         }
     }
-    const onToggleTag = (tag:string) => {
-        tag === selectedTag ? props.onChange(tag) : props.onChange(tag)
+    const onToggleTag = (tagId:number) => {
+        tagId === selectedTagId ? props.onChange(tagId) : props.onChange(tagId)
     }
     return (
         <TagsSectionWrapper>
             <ol>
                 {tags.map(
                     tag=>
-                    <li key={tag} onClick={()=>{onToggleTag(tag)}}
-                        className={tag === selectedTag ? 'selected' : ''}>{tag}</li>
+                    <li key={tag.id} onClick={()=>{onToggleTag(tag.id)}}
+                        className={tag.id === selectedTagId ? 'selected' : ''}>{tag.name}</li>
                 )
                 }
             </ol>
