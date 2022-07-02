@@ -1,13 +1,22 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import createId from "./lib/createId";
+import useUpdate from "./hooks/useUpdate";
 
-const defaultTags = [{ id:createId(),name:'衣' },
-                     { id:createId(),name:'食' },
-                     { id:createId(),name:'住' },
-                     { id:createId(),name:'行' }]
+const defaultTags = JSON.stringify(
+    [{ id:1,name:'衣' },
+          { id:2,name:'食' },
+          { id:3,name:'住' },
+          { id:4,name:'行' }]
+)
 
 const useTags = () => {
-    const [tags,setTags] = useState<{ id:number,name:string }[]>(defaultTags);
+    const [tags,setTags] = useState<{ id:number,name:string }[]>([]);
+    useEffect(()=>{
+        setTags(JSON.parse(window.localStorage.getItem('tags') || defaultTags));
+    },[]);
+    useUpdate(()=>{
+        window.localStorage.setItem('tags',JSON.stringify(tags))
+    },[tags])
     const findTag = (id:number) => tags.filter(tag => tag.id === id)[0];
     const findTagIndex = (id:number) => {
         let result = -1;
@@ -24,8 +33,16 @@ const useTags = () => {
     };
     const deleteTag = (id:number) => {
         setTags(tags.filter(tag => tag.id !== id));
+    };
+    const addTag = () => {
+        const newTag = window.prompt('请输入新标签的名称')
+        if(newTag !== null && newTag !== ''){
+            setTags([...tags, {id:createId(),name:newTag}])
+        }else{
+            window.alert('新建标签名不能为空！')
+        }
     }
-    return {tags,setTags,findTag,updateTag,findTagIndex,deleteTag}
+    return {tags,setTags,findTag,updateTag,findTagIndex,deleteTag,addTag}
 };
 
 export default useTags
