@@ -20,6 +20,9 @@ const useRecords = () => {
             if(record.tagId > 0){
                 setRecords([...records,record]);
                 window.alert('记账成功');
+                setTimeout(()=>{
+                    window.location.href='#/statistics'
+                },0)
             }else{
                 window.alert('请选择一个标签！');
             }

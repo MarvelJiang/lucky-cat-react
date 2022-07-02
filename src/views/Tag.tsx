@@ -32,7 +32,7 @@ const Tabbar = styled.header`
 `
 
 const InputWrapper = styled.div`
-    background: white;
+  background: white;
   padding: 0 16px;
   margin-top: 16px;
 `
