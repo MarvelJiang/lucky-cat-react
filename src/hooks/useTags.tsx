@@ -42,7 +42,11 @@ const useTags = () => {
             window.alert('新建标签名不能为空！')
         }
     }
-    return {tags,setTags,findTag,updateTag,findTagIndex,deleteTag,addTag}
+    const getName = (id:number) => {
+        const tag = tags.filter(tag => tag.id === id)[0]
+        return tag ? tag.name : ''
+    }
+    return {tags,setTags,findTag,updateTag,findTagIndex,deleteTag,addTag,getName}
 };
 
 export default useTags
