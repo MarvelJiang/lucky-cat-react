@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {ChangeEventHandler, useRef} from "react";
+import React, {ChangeEventHandler} from "react";
 import Input from "../../components/Input";
 
 const NotesSectionWrapper = styled.section`
@@ -36,7 +36,7 @@ const NoteSection:React.FC<Props> = (props) => {
     };
     return (
         <NotesSectionWrapper>
-            <Input label="备注" type="text" value={note} onChange={onChange}/>
+            <Input label="备注" type="text" value={note} onChange={onChange} placeholder="点击填写备注..."/>
         </NotesSectionWrapper>
     )
 }
