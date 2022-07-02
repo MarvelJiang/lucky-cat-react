@@ -24,7 +24,7 @@ const Money = () => {
     }
     const submit = () => {
         addRecord(selected);
-        setSelected(defaultFormDate)
+        setSelected({...defaultFormDate,note:selected.note,type:selected.type,amount:selected.amount})
     }
     return (
         <Layout>
