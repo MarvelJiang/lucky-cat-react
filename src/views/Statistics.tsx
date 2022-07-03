@@ -67,7 +67,7 @@ const Statistics = () => {
                     <Header>{n[0]}</Header>
                     <div>
                         {n[1].map(r=>
-                            <Item key={r.tagId}>
+                            <Item key={r.createdAt}>
                                 {/*<span>{day(r.createdAt).format('YYYY年MM月DD日')}</span>*/}
                                 <div className="tags">
                                     <span>{getName(r.tagId)}</span>
