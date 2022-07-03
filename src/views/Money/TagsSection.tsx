@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, {useEffect} from "react";
 import useTags from "../../hooks/useTags";
 
 const TagsSectionWrapper = styled.section` 
@@ -44,7 +44,7 @@ const TagsSection:React.FC<Props> = (props) => {
     const selectedTagId = props.value;
     const onToggleTag = (tagId:number) => {
         tagId === selectedTagId ? props.onChange(tagId) : props.onChange(tagId)
-    }
+    };
     return (
         <TagsSectionWrapper>
             <ol>

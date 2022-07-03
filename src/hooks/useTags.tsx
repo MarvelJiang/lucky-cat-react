@@ -36,10 +36,10 @@ const useTags = () => {
     };
     const addTag = () => {
         const newTag = window.prompt('请输入新标签的名称')
-        if(newTag !== null && newTag !== ''){
+        if(newTag !== null && newTag !== '' && newTag.length <= 4){
             setTags([...tags, {id:createId(),name:newTag}])
         }else{
-            window.alert('新建标签名不能为空！')
+            window.alert('新建标签名不能为空且不能超过4个字符！')
         }
     }
     const getName = (id:number) => {

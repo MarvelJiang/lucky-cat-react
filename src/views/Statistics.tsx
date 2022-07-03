@@ -44,14 +44,12 @@ const Statistics = () => {
         return records.filter(r => r.type === type)
     }
     const hash: { [k:string] : RecordItem[]} = {}
-    selectedRecords().map(r =>{
+    selectedRecords().forEach(r =>{
         const key = day(r.createdAt).format('YYYY年MM月DD日')
         if(!(key in hash)){
             hash[key] = []
-        }else{
-            hash[key].push(r)
         }
-        return undefined
+        hash[key].push(r)
     })
     const arr = Object.entries(hash).sort((a,b) => {
         if (a[0] === b[0]) return 0;
@@ -59,6 +57,7 @@ const Statistics = () => {
         if (a[0] < b[0]) return 1;
         return 0
     })
+    console.log(arr);
     return (
         <Layout>
                 <TypesSection value={type} onChange={(type) => setType(type)}/>

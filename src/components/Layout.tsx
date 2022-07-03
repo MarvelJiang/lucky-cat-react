@@ -15,6 +15,7 @@ const Main = styled.div`
   flex-direction: column;
 `
 
+
 const Layout = (props:any) => {
     return (
         <Wrapper>
