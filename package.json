@@ -1,6 +1,7 @@
 {
   "name": "lucky",
   "version": "0.1.0",
+  "homepage": "https://marveljiang.github.io/lucky-cat-website-react/",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
